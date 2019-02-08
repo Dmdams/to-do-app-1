@@ -29,8 +29,16 @@ function onReady() {
 
     //empty the input
     newToDoText.value = '';
-
   });
+
+  // create delete button
+    deleteToDo.addEventListener('click', removal => {
+      removal.preventDefault();
+      let selected = document.querySelectorAll('#toDoList li input:checked');
+      for (var i = 0; i < selected.length; i++){
+        selected[i].parentNode.parentNode.removeChild(selected[i].parentNode);
+      }
+    });
  }
 
 window.onload = function() {
